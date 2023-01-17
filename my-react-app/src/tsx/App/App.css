@@ -1,0 +1,15 @@
+body {
+    font-family: 'Iosevka Slab';
+}
+
+.App {
+    margin: 0 auto;
+    /* width: 50%; */
+    width: 930px;
+    height: 960px;
+    border: 1px solid rgb(211, 211, 211);
+}
+
+.used_space {
+    display: flex;
+}

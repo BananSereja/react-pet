@@ -1,0 +1,22 @@
+.filter_btn {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 196px;
+    /* margin-left: 18px; */
+}
+
+.btn {
+    border: none;
+    height: 35px;
+    width: 80px;
+    background-color:rgb(0, 119, 255);
+    color: white;
+    font-family: Iosevka Slab;
+}
+
+.number_page {
+    text-align: center;
+    margin-top: 14px;
+}

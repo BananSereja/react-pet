@@ -1,0 +1,29 @@
+.header {
+    display: flex;
+    justify-content: space-between;  
+    background-color:rgb(0, 119, 255);
+    width: 100%;
+    margin: 0 auto;
+    height: 40px;
+}
+
+.btn_home, .btn_login {
+    color: white;
+    width: 60px;
+    
+    background-color: transparent;
+    border: none;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-size: 18px;
+    font-family: Iosevka Slab;
+    border-radius: 4px;
+    height: 30px;
+    margin-top: 5px;
+}
+
+.btn_login {
+    background-color: rgb(61, 177, 38);
+    
+}
+
