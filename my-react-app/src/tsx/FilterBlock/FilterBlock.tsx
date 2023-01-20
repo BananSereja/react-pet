@@ -10,21 +10,14 @@ function FilterBlock() {
       <div className="filter_header">Фильтры:</div>
       <button className="filter_reset">Сбросить все фильтры</button>
 
-      <div className="">Сортировать по:</div>
-      <select className="filter_selector">
-        <FilterSelector />
-      </select>
+      <div>Сортировать по:</div>
+      <FilterSelector />
 
       <div>Год релиза:</div>
-      <select className="filter_selector">
-        <ReleaseYear />
-      </select>
+      <ReleaseYear />
 
       <Genres />
-
       <Pagination />
-
-      
     </div>
   );
 }

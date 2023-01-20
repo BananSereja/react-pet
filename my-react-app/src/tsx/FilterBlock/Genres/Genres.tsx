@@ -1,16 +1,20 @@
 import "./Genres.css";
-import { nanoid } from "nanoid";
+useSelector;
 import React from "react";
 import { genresList } from "../../../ts/itemList/itemList";
+import { useSelector } from "react-redux";
 
 function Genres() {
-  const list = genresList.map((item) => (
-    <div key={nanoid()} className='genres_wrapper'>
-      <input className="genres_check" type="checkbox"></input>
-      <p >{item}</p>
+  return (
+    <div>
+      {genresList.map((item) => (
+        <div key={item.id} className="genres_wrapper">
+          <input className="genres_check" type="checkbox"></input>
+          <p>{item.name}</p>
+        </div>
+      ))}
     </div>
-  ));
-  return list;
+  );
 }
 
 export default Genres;

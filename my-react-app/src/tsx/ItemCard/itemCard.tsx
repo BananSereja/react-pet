@@ -1,30 +1,28 @@
 import "./itemCard.css";
 import React from "react";
 
-function ItemCard() {
+
+export interface ItemCardInterface {
+  title: string;
+  vote_average: number;
+  url: string;
+}
+
+function ItemCard({url,title,vote_average}: ItemCardInterface) {
+  const img = `https://image.tmdb.org/t/p/w500/${url}`;
+
   return (
-    <div className="containerCard">
-      <div className="wrapperCard">
-        <div className="halfs">
-          <div className="img_container">
-            <img
-              className="img"
-              src="https://cdn.ananasposter.ru/image/cache/catalog/poster/mult/83/10964-1000x830.jpg"
-            />
-          </div>
+    <div  className="card_wrapper">
+      <img className="card_img" src={img} />
+      <div className="card_title">{title}</div>
 
-          <div className="right">
-            <div className="header_card">
-              <div>Рейтинг:пенис</div>
-              <button className="btn_star">✰</button>
-              <button className="btn_favorit">⌂</button>
-            </div>
-
-            <div className="name_card"> asdasdasdasd asd asd asdasdasdasd</div>
-            <button className="button_info">Подробнее</button>
-          </div>
-        </div>
+      <div className="card_rating">
+        <div className="rating">Рейтинг:{vote_average}</div>
+        <button className="btn_star"></button>
+        <button className="btn_book"></button>
       </div>
+
+      <div className="more_info">Подробнее...</div>
     </div>
   );
 }
