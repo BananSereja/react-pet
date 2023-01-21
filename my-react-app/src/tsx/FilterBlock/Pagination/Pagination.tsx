@@ -7,29 +7,31 @@ function Pagination() {
   const [checkPage, setCheckPage] = useState(0)
   const [currentPage, setCurrentPage] = useState(1)
   const [visibleItem] = useState(10)
-  const list = useSelector((state:{list:{films: []}}) => state.list.films)
+  const list = useSelector((state:{list: []}) => state.list)
+ 
   const dispatch = useDispatch()
-
+  
   const lastPageIndex = currentPage * visibleItem
   const firstPageIndex = lastPageIndex - visibleItem 
   const currentList = list.slice(firstPageIndex, lastPageIndex)
+
   
 
   const handlePagePlus = () => {
     setCurrentPage(currentPage => currentPage + 1)
-    dispatch({type:'CARD_PAGINATION',payload:currentList})
+    dispatch({type:'PAGINATION_LIST',payload:currentList})
     setCheckPage(checkPage => checkPage + 1)
   }
 
   const handlePageSubtrack = () => {
     setCurrentPage(currentPage => currentPage - 1)
-    dispatch({type:'CARD_PAGINATION',payload:currentList})
+    dispatch({type:'PAGINATION_LIST',payload:currentList})
     setCheckPage(checkPage => checkPage - 1)
   }
 
   useEffect(() => {
-    dispatch({type:'CARD_PAGINATION',payload:currentList})
-  }, [])
+    dispatch({type:'PAGINATION_LIST',payload:currentList})
+  }, [list])
  
 
   return (

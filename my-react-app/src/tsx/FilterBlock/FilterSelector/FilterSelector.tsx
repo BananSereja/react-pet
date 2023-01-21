@@ -5,34 +5,41 @@ import { nanoid } from "nanoid";
 import { useDispatch, useSelector } from "react-redux";
 
 function FilterSelector() {
-  const [currentSelect, SetCurrentSelect] = useState();
+  const [currentSelect, SetCurrentSelect] = useState("Сначала популярные");
+  const list = useSelector((state: { list: [] }) => state.list);
   const dispatch = useDispatch();
-  const list = useSelector((state:{list:{films: []}}) => state.list.films);
-// console.log(currentSelect)
-  const currentList = list.sort(
+
+  const currentListPop = [...list].sort(
     (a: { popularity: number }, b: { popularity: number }) =>
-      a.popularity - b.popularity
+      b.popularity - a.popularity
   );
-// console.log(currentList)
+
+  const currentListVote = [...list].sort(
+    (a: { vote_average: number }, b: { vote_average: number }) =>
+      b.vote_average - a.vote_average
+  );
+
   useEffect(() => {
     if (currentSelect === "Сначала популярные") {
-      dispatch({ type: "CARD_INFO", payload: currentList });
+      dispatch({ type: "FILMS_LIST", payload: currentListPop });
     } else if (currentSelect === "Сначала менее популярные") {
-      dispatch({ type: "CARD_INFO", payload: currentList.reverse() });
+      dispatch({ type: "FILMS_LIST", payload: currentListPop.reverse() });
+    } else if (currentSelect === "Высокий рейтинг") {
+      dispatch({ type: "FILMS_LIST", payload: currentListVote });
+    } else if (currentSelect === "Низкий рейтинг") {
+      dispatch({ type: "FILMS_LIST", payload: currentListVote.reverse() });
     }
   }, [currentSelect]);
-  
 
   const handleSelect = (e: { target: { value: string } }) => {
     SetCurrentSelect(e.target.value);
-    console.log(currentSelect);
-    console.log(list)
+    console.log()
   };
 
   return (
-    <select onChange={(e) => handleSelect(e)} className="filter_selector">
+    <select value={currentSelect} onChange={(e) => handleSelect(e)} className="filter_selector">
       {filterList.map((item) => (
-        <option value={currentSelect} key={nanoid()}>{item}</option>
+        <option  key={nanoid()}>{item}</option>
       ))}
     </select>
   );

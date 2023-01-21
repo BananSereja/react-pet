@@ -14,6 +14,7 @@
     background-color:rgb(19, 58, 32);
     color: antiquewhite;
     font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
 }
 
 .btn_lock {

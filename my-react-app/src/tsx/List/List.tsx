@@ -12,7 +12,8 @@ function List() {
     vote_average: number
   }
 
-  const list:cardInterface[] = useSelector(state => state.pagination)
+  const list:cardInterface[] = useSelector((state: {pagination:[]}) => state.pagination)
+  
 
   return (
     <div className="grid_wrapper">
